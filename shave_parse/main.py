@@ -6,7 +6,8 @@ import sqlite3
 import config
 def insert_db(names, articles, manufacturers, prices):
     # Устанавливаем соединение с базой данных
-    connection = sqlite3.connect(config.db_path)
+    with sqlite3.connect(config.db_path) as connection:
+        cursor = connection.cursor()
     cursor = connection.cursor()
 
     # Создаем таблицу, если она еще не существует
