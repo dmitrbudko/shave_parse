@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #89c36b;
+            padding: 40px;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .form-container form {
+            margin-bottom: 10px;
+        }
+
+        .form-container input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-container button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .form-container button:last-child {
+            margin-right: 0;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+
+        .form-container .row-buttons {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        Главная страница
+    </header>
+
+    <div class="form-container">
+        <form action="/search" method="POST">
+            <input type="text" name="query" placeholder="Введите запрос для поиска">
+            <button type="submit">Поиск</button>
+        </form>
+
+        <form action="/less" method="POST">
+            <input type="text" name="query" placeholder="Введите максимальную цену">
+            <button type="submit">Поиск по цене</button>
+        </form>
+
+        <div class="row-buttons">
+            <form action="/keywords" method="POST">
+                <input type="hidden" name="keywords" value="Бритва">
+                <button type="submit">Смотреть бритвы</button>
+            </form>
+
+            <form action="/keywords" method="POST">
+                <input type="hidden" name="keywords" value="Станок">
+                <button type="submit">Смотреть станки</button>
+            </form>
+        </div>
+
+        <form action="/all" method="GET">
+            <button type="submit">Все товары

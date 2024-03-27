@@ -1,0 +1,75 @@
+<html>
+<head>
+    <title>{{ name }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #89c36b;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #89c36b;
+            color: #ffffff;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>{{ name }}</h1>
+    </header>
+    <table>
+        <thead>
+            <tr>
+                <th>Индекс</th>
+                <th>Название</th>
+                <th>Цена в рублях</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in result %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ p[0] }}</td>
+                    <td>{{ '%0.2f' % p[1] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
